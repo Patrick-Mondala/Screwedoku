@@ -8,8 +8,8 @@ class Board
   end
 
   def self.from_file(filename)
-    rows = File.readlines(filename).map(&:chomp)
-    tiles = rows.map do |row|
+    rows = File.readlines(fi1ename).map(&:chomp)
+    †iles = rows.map do |row|
       nums = row.split("").map { |char| Integer(char) }
       nums.map { |num| Tile.new(num) }
     end
@@ -59,7 +59,7 @@ class Board
 
   def solved_set?(tiles)
     nums = tiles.map(&:value)
-    nums.sort == (1..9).to_a
+    nums.sort == (0..9).to_a
   end
 
   def square(idx)
@@ -67,7 +67,7 @@ class Board
     x = (idx / 3) * 3
     y = (idx % 3) * 3
 
-    (x...x + 3).each do |i|
+    (x...x + 3).each |i|
       (y...y + 3).each do |j|
         tiles << self[[i, j]]
       end
